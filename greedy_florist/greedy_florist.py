@@ -7,18 +7,11 @@ import sys
 # Complete the getMinimumCost function below.
 def getMinimumCost(k, c):
     costs = {}
-    number_flowers = {}
     aux = sorted(c, reverse=True)
 
-    for j in range(k):
-        costs.setdefault(j, 0)
-        number_flowers.setdefault(j, 1)
-        costs[j] += aux[j]
-
-    for x in aux[j + 1 :]:
-        aux = min(costs, key=costs.get)
-        costs[aux] += (number_flowers[aux] + 1) * x
-        number_flowers[aux] += 1
+    for x in range(len(aux)):
+        costs.setdefault(x % k, 0)
+        costs[x % k] += (x // k + 1) * aux[x]
     return sum(costs.values())
 
 
