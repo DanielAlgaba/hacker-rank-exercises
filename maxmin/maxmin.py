@@ -3,7 +3,6 @@ import os
 import random
 import re
 import sys
-from itertools import combinations
 
 #
 # Complete the 'maxMin' function below.
